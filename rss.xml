@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Blog - Matt Haws]]></title><description><![CDATA[Thoughts on programming, technology, pop culture, and life.]]></description><link>https://matthaws.github.io/the-blog</link><generator>RSS for Node</generator><lastBuildDate>Fri, 23 Feb 2018 17:10:05 GMT</lastBuildDate><item><title><![CDATA[Building a Eurovision App - Part One]]></title><description><![CDATA[The story of conceiving, planning, and beginning to build a social Eurovision scoring web application.]]></description><link>https://matthaws.github.io/the-blog/posts/eurovision-app-part-one</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/eurovision-app-part-one</guid><pubDate>Thu, 01 Feb 2018 22:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;The Idea&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Blog - Matt Haws]]></title><description><![CDATA[Thoughts on programming, technology, pop culture, and life.]]></description><link>https://matthaws.github.io/the-blog</link><generator>RSS for Node</generator><lastBuildDate>Fri, 23 Feb 2018 17:12:17 GMT</lastBuildDate><item><title><![CDATA[Building a Eurovision App - Part One]]></title><description><![CDATA[The story of conceiving, planning, and beginning to build a social Eurovision scoring web application.]]></description><link>https://matthaws.github.io/the-blog/posts/eurovision-app-part-one</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/eurovision-app-part-one</guid><pubDate>Thu, 01 Feb 2018 22:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;The Idea&lt;/h1&gt;
 &lt;p&gt;I could write an entire blog post on why I love the Eurovision Song Contest so much — and maybe eventually I will. But for the sake of brevity &lt;a href=&quot;https://en.wikipedia.org/wiki/Eurovision_Song_Contest&quot;&gt;here’s a link to the Wikipedia page&lt;/a&gt; about it and an image that sums it all up:&lt;/p&gt;
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-88d31.jpg&quot;
+    href=&quot;/the-blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-88d31.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -22,11 +22,11 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Eurovision granny&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-d564d.jpg&quot;
-        srcset=&quot;/blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-865fd.jpg 240w,
-/blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-d40a0.jpg 480w,
-/blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-d564d.jpg 960w,
-/blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-88d31.jpg 980w&quot;
+        src=&quot;/the-blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-d564d.jpg&quot;
+        srcset=&quot;/the-blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-865fd.jpg 240w,
+/the-blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-d40a0.jpg 480w,
+/the-blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-d564d.jpg 960w,
+/the-blog/static/ukraine_granny-b50d80675c6135d854f954c07195d76d-88d31.jpg 980w&quot;
         sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
       /&gt;
     &lt;/span&gt;
@@ -65,7 +65,7 @@
 &lt;p&gt;  
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/db-d51520e2f012b4f33b018f5ac901f062-181b1.png&quot;
+    href=&quot;/the-blog/static/db-d51520e2f012b4f33b018f5ac901f062-181b1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -84,10 +84,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Douze Points db&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/db-d51520e2f012b4f33b018f5ac901f062-181b1.png&quot;
-        srcset=&quot;/blog/static/db-d51520e2f012b4f33b018f5ac901f062-c2eac.png 240w,
-/blog/static/db-d51520e2f012b4f33b018f5ac901f062-3b60c.png 480w,
-/blog/static/db-d51520e2f012b4f33b018f5ac901f062-181b1.png 713w&quot;
+        src=&quot;/the-blog/static/db-d51520e2f012b4f33b018f5ac901f062-181b1.png&quot;
+        srcset=&quot;/the-blog/static/db-d51520e2f012b4f33b018f5ac901f062-c2eac.png 240w,
+/the-blog/static/db-d51520e2f012b4f33b018f5ac901f062-3b60c.png 480w,
+/the-blog/static/db-d51520e2f012b4f33b018f5ac901f062-181b1.png 713w&quot;
         sizes=&quot;(max-width: 713px) 100vw, 713px&quot;
       /&gt;
     &lt;/span&gt;
@@ -103,7 +103,7 @@
 &lt;p&gt;  
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/splash-9069a92f05608837ad8610cb67e854ed-59fbd.png&quot;
+    href=&quot;/the-blog/static/splash-9069a92f05608837ad8610cb67e854ed-59fbd.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -122,10 +122,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Splash Page&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/splash-9069a92f05608837ad8610cb67e854ed-59fbd.png&quot;
-        srcset=&quot;/blog/static/splash-9069a92f05608837ad8610cb67e854ed-4ffbf.png 240w,
-/blog/static/splash-9069a92f05608837ad8610cb67e854ed-cf458.png 480w,
-/blog/static/splash-9069a92f05608837ad8610cb67e854ed-59fbd.png 710w&quot;
+        src=&quot;/the-blog/static/splash-9069a92f05608837ad8610cb67e854ed-59fbd.png&quot;
+        srcset=&quot;/the-blog/static/splash-9069a92f05608837ad8610cb67e854ed-4ffbf.png 240w,
+/the-blog/static/splash-9069a92f05608837ad8610cb67e854ed-cf458.png 480w,
+/the-blog/static/splash-9069a92f05608837ad8610cb67e854ed-59fbd.png 710w&quot;
         sizes=&quot;(max-width: 710px) 100vw, 710px&quot;
       /&gt;
     &lt;/span&gt;
@@ -137,7 +137,7 @@
 &lt;p&gt;  
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-59fbd.png&quot;
+    href=&quot;/the-blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-59fbd.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -156,10 +156,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Scoresheets&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-59fbd.png&quot;
-        srcset=&quot;/blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-4ffbf.png 240w,
-/blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-cf458.png 480w,
-/blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-59fbd.png 710w&quot;
+        src=&quot;/the-blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-59fbd.png&quot;
+        srcset=&quot;/the-blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-4ffbf.png 240w,
+/the-blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-cf458.png 480w,
+/the-blog/static/scoresheet-5ae007ade5f504cc75771b8aecb1ad6b-59fbd.png 710w&quot;
         sizes=&quot;(max-width: 710px) 100vw, 710px&quot;
       /&gt;
     &lt;/span&gt;
@@ -171,7 +171,7 @@
 &lt;p&gt;  
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/entry-ded426ef9191d1a69ce840dec4128a18-59fbd.png&quot;
+    href=&quot;/the-blog/static/entry-ded426ef9191d1a69ce840dec4128a18-59fbd.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -190,10 +190,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Entry Details&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/entry-ded426ef9191d1a69ce840dec4128a18-59fbd.png&quot;
-        srcset=&quot;/blog/static/entry-ded426ef9191d1a69ce840dec4128a18-4ffbf.png 240w,
-/blog/static/entry-ded426ef9191d1a69ce840dec4128a18-cf458.png 480w,
-/blog/static/entry-ded426ef9191d1a69ce840dec4128a18-59fbd.png 710w&quot;
+        src=&quot;/the-blog/static/entry-ded426ef9191d1a69ce840dec4128a18-59fbd.png&quot;
+        srcset=&quot;/the-blog/static/entry-ded426ef9191d1a69ce840dec4128a18-4ffbf.png 240w,
+/the-blog/static/entry-ded426ef9191d1a69ce840dec4128a18-cf458.png 480w,
+/the-blog/static/entry-ded426ef9191d1a69ce840dec4128a18-59fbd.png 710w&quot;
         sizes=&quot;(max-width: 710px) 100vw, 710px&quot;
       /&gt;
     &lt;/span&gt;
@@ -206,7 +206,7 @@
 &lt;p&gt;This proved a bit more complicated than I expected, which will be the topic of part 2 of this series!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[What I Wish Someone Had Told Me When I Was Learning to Code]]></title><description><![CDATA[Some words of encouragement to anybody beginning the journey of learning to make computers do what you want them to do.]]></description><link>https://matthaws.github.io/the-blog/posts/What-I-Wish-Someone-Had-Said/</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/What-I-Wish-Someone-Had-Said/</guid><pubDate>Fri, 18 Aug 2017 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-3a7de.png&quot;
+    href=&quot;/the-blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-3a7de.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -225,10 +225,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;It&apos;s very easy to be discouraged. But you aren&apos;t alone!&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-3a7de.png&quot;
-        srcset=&quot;/blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-6adbd.png 240w,
-/blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-13977.png 480w,
-/blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-3a7de.png 630w&quot;
+        src=&quot;/the-blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-3a7de.png&quot;
+        srcset=&quot;/the-blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-6adbd.png 240w,
+/the-blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-13977.png 480w,
+/the-blog/static/frustration-62ffeb62a551b88745133fadb957f9aa-3a7de.png 630w&quot;
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
       /&gt;
     &lt;/span&gt;
@@ -246,13 +246,13 @@
 &lt;p&gt;You will never reach a level of skill in which you will always just magically write bug-free code. You will never reach a point in working with code in which you do not have to deal with bugs. Instead, you will get better at tracking down, spotting, and fixing bugs through time and practice, and a lot of staring at your code in confusion. Developing efficient debugging skills is more important than stressing over writing “perfect” code on your first try.&lt;/p&gt;
 &lt;figure class=&quot;float-left&quot; style=&quot;width: 240px&quot;&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-baedd.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/the-blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-baedd.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; ; max-width: 700px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 74.57142857142858%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBBAb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABlnmnMXhWH//EABkQAAIDAQAAAAAAAAAAAAAAAAADAQIRIf/aAAgBAQABBQJFzhwXsrm5q7n/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPwGH/8QAGxABAAICAwAAAAAAAAAAAAAAAQAQESIxUZH/2gAIAQEABj8COq5PY7AU5n//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhQTFh/9oACAEBAAE/IQBu+LmLUCDXICWIJjfJdQpXfsurhryf/9oADAMBAAIAAwAAABCcL//EABURAQEAAAAAAAAAAAAAAAAAABEQ/9oACAEDAQE/EFn/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREx/9oACAECAQE/EHGMh//EAB0QAQEAAgIDAQAAAAAAAAAAAAERADFBUSFhgZH/2gAIAQEAAT8QZcWFgB0L36yzU5V1iQlEsjHdSIVVfEJiAmHa/WsHUq27jr9z/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;I Have No Idea&quot; title=&quot;&quot; src=&quot;/blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-baedd.jpg&quot; srcset=&quot;/blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-8267e.jpg 240w,
-/blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-1aec3.jpg 480w,
-/blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-baedd.jpg 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;I Have No Idea&quot; title=&quot;&quot; src=&quot;/the-blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-baedd.jpg&quot; srcset=&quot;/the-blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-8267e.jpg 240w,
+/the-blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-1aec3.jpg 480w,
+/the-blog/static/no-idea-957d1dcc8123b162f65037808cfcd679-baedd.jpg 700w&quot; sizes=&quot;(max-width: 700px) 100vw, 700px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -270,7 +270,7 @@
 &lt;p&gt;You &lt;em&gt;can&lt;/em&gt; code.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Rogue One: A Star Wars Story?]]></title><description><![CDATA[As a life-long Star Wars fan AND somebody who really overthinks movies, Rogue One really bothered me. I wrote an essay to explore exactly why.]]></description><link>https://matthaws.github.io/the-blog/posts/rogue-one/</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/rogue-one/</guid><pubDate>Thu, 02 Feb 2017 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d9dea.jpg&quot;
+    href=&quot;/the-blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d9dea.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -289,11 +289,11 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Some characters&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d564d.jpg&quot;
-        srcset=&quot;/blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-865fd.jpg 240w,
-/blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d40a0.jpg 480w,
-/blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d564d.jpg 960w,
-/blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d9dea.jpg 970w&quot;
+        src=&quot;/the-blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d564d.jpg&quot;
+        srcset=&quot;/the-blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-865fd.jpg 240w,
+/the-blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d40a0.jpg 480w,
+/the-blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d564d.jpg 960w,
+/the-blog/static/rogue-one-1b733682bbb644bec75b2cd4bcd5d033-d9dea.jpg 970w&quot;
         sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
       /&gt;
     &lt;/span&gt;
@@ -310,7 +310,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-cfd28.jpg&quot;
+    href=&quot;/the-blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-cfd28.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -329,11 +329,11 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Star Wars&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-d564d.jpg&quot;
-        srcset=&quot;/blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-865fd.jpg 240w,
-/blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-d40a0.jpg 480w,
-/blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-d564d.jpg 960w,
-/blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-cfd28.jpg 1024w&quot;
+        src=&quot;/the-blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-d564d.jpg&quot;
+        srcset=&quot;/the-blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-865fd.jpg 240w,
+/the-blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-d40a0.jpg 480w,
+/the-blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-d564d.jpg 960w,
+/the-blog/static/star-wars-c66e54afbacc15918836439b6bf80b20-cfd28.jpg 1024w&quot;
         sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
       /&gt;
     &lt;/span&gt;
@@ -349,7 +349,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-813ce.jpg&quot;
+    href=&quot;/the-blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-813ce.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -368,10 +368,10 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Characters&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-813ce.jpg&quot;
-        srcset=&quot;/blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-7a9df.jpg 240w,
-/blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-83ae8.jpg 480w,
-/blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-813ce.jpg 650w&quot;
+        src=&quot;/the-blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-813ce.jpg&quot;
+        srcset=&quot;/the-blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-7a9df.jpg 240w,
+/the-blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-83ae8.jpg 480w,
+/the-blog/static/characters-2ba0a4a00abd83c1926918cccdcf8e5f-813ce.jpg 650w&quot;
         sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
       /&gt;
     &lt;/span&gt;
@@ -398,7 +398,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/allegory-99037c06ae40072ead37ce882d5454f6-424c5.jpg&quot;
+    href=&quot;/the-blog/static/allegory-99037c06ae40072ead37ce882d5454f6-424c5.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -417,9 +417,9 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Allegory&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/allegory-99037c06ae40072ead37ce882d5454f6-424c5.jpg&quot;
-        srcset=&quot;/blog/static/allegory-99037c06ae40072ead37ce882d5454f6-a6726.jpg 240w,
-/blog/static/allegory-99037c06ae40072ead37ce882d5454f6-424c5.jpg 465w&quot;
+        src=&quot;/the-blog/static/allegory-99037c06ae40072ead37ce882d5454f6-424c5.jpg&quot;
+        srcset=&quot;/the-blog/static/allegory-99037c06ae40072ead37ce882d5454f6-a6726.jpg 240w,
+/the-blog/static/allegory-99037c06ae40072ead37ce882d5454f6-424c5.jpg 465w&quot;
         sizes=&quot;(max-width: 465px) 100vw, 465px&quot;
       /&gt;
     &lt;/span&gt;
@@ -441,7 +441,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/myth-10b53c4ca162be49dd861cc8548647ec-667be.jpg&quot;
+    href=&quot;/the-blog/static/myth-10b53c4ca162be49dd861cc8548647ec-667be.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -460,12 +460,12 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;Myth and Genre&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/myth-10b53c4ca162be49dd861cc8548647ec-d564d.jpg&quot;
-        srcset=&quot;/blog/static/myth-10b53c4ca162be49dd861cc8548647ec-865fd.jpg 240w,
-/blog/static/myth-10b53c4ca162be49dd861cc8548647ec-d40a0.jpg 480w,
-/blog/static/myth-10b53c4ca162be49dd861cc8548647ec-d564d.jpg 960w,
-/blog/static/myth-10b53c4ca162be49dd861cc8548647ec-c67c1.jpg 1440w,
-/blog/static/myth-10b53c4ca162be49dd861cc8548647ec-667be.jpg 1920w&quot;
+        src=&quot;/the-blog/static/myth-10b53c4ca162be49dd861cc8548647ec-d564d.jpg&quot;
+        srcset=&quot;/the-blog/static/myth-10b53c4ca162be49dd861cc8548647ec-865fd.jpg 240w,
+/the-blog/static/myth-10b53c4ca162be49dd861cc8548647ec-d40a0.jpg 480w,
+/the-blog/static/myth-10b53c4ca162be49dd861cc8548647ec-d564d.jpg 960w,
+/the-blog/static/myth-10b53c4ca162be49dd861cc8548647ec-c67c1.jpg 1440w,
+/the-blog/static/myth-10b53c4ca162be49dd861cc8548647ec-667be.jpg 1920w&quot;
         sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
       /&gt;
     &lt;/span&gt;
@@ -489,7 +489,7 @@
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-664a0.jpg&quot;
+    href=&quot;/the-blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-664a0.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -508,9 +508,9 @@
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;anger&quot;
         title=&quot;&quot;
-        src=&quot;/blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-664a0.jpg&quot;
-        srcset=&quot;/blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-6d952.jpg 240w,
-/blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-664a0.jpg 460w&quot;
+        src=&quot;/the-blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-664a0.jpg&quot;
+        srcset=&quot;/the-blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-6d952.jpg 240w,
+/the-blog/static/anger-4a5e074081401ba6a5aa4ec1522a76ec-664a0.jpg 460w&quot;
         sizes=&quot;(max-width: 460px) 100vw, 460px&quot;
       /&gt;
     &lt;/span&gt;
