@@ -1,0 +1,42 @@
+import React from 'react';
+import './style.scss';
+import '../../assets/fonts/fontello-771c82e0/css/fontello.css';
+
+class Links extends React.Component {
+  render() {
+    const author = this.props.data;
+    const links = {
+      github: author.github,
+      email: author.email,
+      linkedin: author.linkedin
+    };
+
+    return (
+      <div className="links">
+        <ul className="links__list">
+          <li className="links__list-item">
+            <a href={`mailto:${links.email}`}>
+              <i className="icon-mail" />
+            </a>
+          </li>
+          <li className="links__list-item">
+            <a href={`https://www.github.com/${links.github}`} target="_blank" >
+              <i className="icon-github" />
+            </a>
+          </li>
+          <li className="links__list-item">
+            <a href={`https://www.linkedin.com/in/${links.linkedin}`} >
+              <i className="icon-linkedin" />
+            </a>
+          </li>
+        </ul>
+        <ul className="links__list">
+        </ul>
+        <ul className="links__list">
+        </ul>
+      </div>
+    );
+  }
+}
+
+export default Links;
