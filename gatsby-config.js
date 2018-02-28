@@ -1,10 +1,10 @@
 module.exports = {
+  pathPrefix: '/the-blog',
   siteMetadata: {
-    url: 'https://lumen.netlify.com',
+    url: 'https://matthaws.github.io/the-blog',
     title: 'The Blog - Matt Haws',
     subtitle: 'Thoughts on programming, technology, pop culture, and life.',
     copyright: '© All rights reserved.',
-    pathPrefix: '/blog',
     disqusShortname: '',
     menu: [
       {
