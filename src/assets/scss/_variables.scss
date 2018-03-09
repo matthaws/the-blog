@@ -4,13 +4,13 @@
 //
 // Colors
 $color-base: #222;
-$color-primary: #3B415A;
+$color-primary: #3B4258;
 $color-secondary: #DB7D67;
 
 $color-white: lighten($color-base, 100%);
-$color-gray: lighten($color-base, 40%);
-$color-gray-border: lighten($color-base, 77%);
-$color-gray-bg: lighten($color-base, 79%);
+$color-gray: #3B4258;
+$color-gray-border: #3B4258;
+$color-gray-bg: #DFE0E0;
 
 // Typographic
 $typographic-font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
