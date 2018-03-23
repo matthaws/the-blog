@@ -3,7 +3,7 @@ title: "The Problem of Altered Carbon"
 date: "2018-03-20T22:40:32.169Z"
 layout: post
 draft: false
-path: "/posts/last-jedi/"
+path: "/posts/altered-carbon/"
 category: "Pop Culture"
 tags:
   - "Rant"
