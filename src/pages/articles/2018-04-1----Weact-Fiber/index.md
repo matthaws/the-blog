@@ -1,6 +1,6 @@
 ---
 title: "Fiber in My (React) Diet"
-date: "2018-04-01T22:40:32.169Z"
+date: "2018-04-14T22:40:32.169Z"
 layout: post
 draft: false
 path: "/posts/react-fiber/"
