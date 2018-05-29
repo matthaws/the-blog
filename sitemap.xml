@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url> <loc>https://matthaws.github.io/the-blog/offline-plugin-app-shell-fallback/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/contact</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/posts/disney-princesses/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/tags/humor/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/categories/pop-culture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/posts/rogue-one/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/tags/rant/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/posts/What-I-Wish-Someone-Had-Said/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/categories/programming/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/posts/eurovision-app-part-one</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/tags/web-development/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/categories/programming/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/posts/What-I-Wish-Someone-Had-Said/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/posts/last-jedi/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/posts/eurovision-app-part-two</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/posts/altered-carbon/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/tags/sci-fi-tv/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/posts/react-fiber/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/tags/javascript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/tags/react/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://matthaws.github.io/the-blog/contact</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/posts/altered-carbon/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/tags/rant/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/tags/sci-fi-tv/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/posts/last-jedi/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://matthaws.github.io/the-blog/posts/rogue-one/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://matthaws.github.io/the-blog/tags/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Blog - Matt Haws]]></title><description><![CDATA[Thoughts on programming, technology, pop culture, and life.]]></description><link>https://matthaws.github.io/the-blog</link><generator>RSS for Node</generator><lastBuildDate>Sat, 14 Apr 2018 22:36:22 GMT</lastBuildDate><item><title><![CDATA[Fiber in My (React) Diet]]></title><description><![CDATA[A deep dive into React 16's new Fiber rendering through trying to replicate it in my own front-end Javascript library, Weact]]></description><link>https://matthaws.github.io/the-blog/posts/react-fiber/</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/react-fiber/</guid><pubDate>Sat, 14 Apr 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Despite my rather ambivalent attitude towards Facebook as a company (an attitude that a lot of people are sharing with me lately, no doubt), I &lt;em&gt;love&lt;/em&gt; React. It makes me feel like I can point my thoughts at the screen like a magic wand and presto an app into existence. I mean, not really. There’s tons of debugging and tinkering, and obviously nothing is perfect, but it somehow still &lt;em&gt;feels&lt;/em&gt; like magic even after working with it on so many projects.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Blog - Matt Haws]]></title><description><![CDATA[Thoughts on programming, technology, pop culture, and life.]]></description><link>https://matthaws.github.io/the-blog</link><generator>RSS for Node</generator><lastBuildDate>Tue, 29 May 2018 20:17:06 GMT</lastBuildDate><item><title><![CDATA[Fiber in My (React) Diet]]></title><description><![CDATA[A deep dive into React 16's new Fiber rendering through trying to replicate it in my own front-end Javascript library, Weact]]></description><link>https://matthaws.github.io/the-blog/posts/react-fiber/</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/react-fiber/</guid><pubDate>Sat, 14 Apr 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Despite my rather ambivalent attitude towards Facebook as a company (an attitude that a lot of people are sharing with me lately, no doubt), I &lt;em&gt;love&lt;/em&gt; React. It makes me feel like I can point my thoughts at the screen like a magic wand and presto an app into existence. I mean, not really. There’s tons of debugging and tinkering, and obviously nothing is perfect, but it somehow still &lt;em&gt;feels&lt;/em&gt; like magic even after working with it on so many projects.&lt;/p&gt;
 &lt;p&gt;Many developers aren’t comfortable with “magic” — that is to say, with code that’s just doing things for you that you don’t know about or fully understand. Personally, I love magic. The less brainpower I’m devoting to smaller details, the more attention I can put to the bigger ones, the ones that matter, the ones that lead to clever implementations and rich user experiences. But I agree that magic shouldn’t necessarily be trusted implicitly, and a developer looking to gain full mastery over their toolset should open the hood to see what’s really going on under there. That’s why I built my own backend framework and ORM based on Rails a few months back. And its also why I’ve been reading a lot about React’s internal plumbing and putting together my own modest version that I have oh-so-cleverly called &lt;em&gt;Weact&lt;/em&gt;. Because with it, &lt;em&gt;we&lt;/em&gt; can &lt;em&gt;act&lt;/em&gt;, get it? Actually, mostly because it just sounds like React said by Homestar Runner and that makes me happy.&lt;/p&gt;
 &lt;p&gt;The virtual DOM reconciliation algorithm was hands down the most interesting part of building Weact — basically a big recursive function comparing two data trees and making changes to the DOM as necessary. However, React has gone through a lot of internal restructuring as of version 16 which completely changes the way it works through reconciliation and updating the DOM. It accomplishes this via the implementation of a new workflow using “fibers”. It’s completely fascinating and incredibly clever! I’m indebted to &lt;a href=&quot;https://github.com/acdlite/react-fiber-architecture&quot;&gt;Andrew Clark’s thorough “React Fiber Architecture”&lt;/a&gt; for wrapping my head around the high-level concept. He works at Facebook and is a co-creator of Redux so you know he knows what he’s talking about. I recommend you check it out!&lt;/p&gt;
 &lt;p&gt;Basically, it turns out that the most expensive, time-consuming part of a React re-render is &lt;em&gt;not&lt;/em&gt;, as many of us might have once assumed, the actual changes to the DOM. Instead, its the reconciliation process of comparing the virtual DOM to the real one that takes up the most time. This actually made a lot of sense once it was laid out for me and once I had written a version of that reconciliation algorithm myself. It’s a recursive function traveling down potentially the entire DOM tree, which, in a large app with many nodes, could mean a lot of work, even with React’s under-the-hood optimizations to reduce unnecessary comparisons. During each re-render, Javascript’s single thread is stuck working through the full reconciliation until its completely finished. This was causing problems as React has grown across platforms and into wider use cases such as animation where blocking the main thread causes noticeable performance issues.&lt;/p&gt;
@@ -1102,6 +1102,521 @@ with references to the node in question (before and after change) and a &lt;code
 &lt;p&gt;I may simply have to come to terms with this. Movies are not made to accommodate my particular sensibilities, after all. And maybe it’s just plain ridiculous that all this bothers me at all. Look at everything that’s going on in the world! Why do I care about this so much? I mean, they are just movies, right? Why bother writing a huge essay like this to argue about some silly movies?&lt;/p&gt;
 &lt;p&gt;But, if you are a true fan, you know that they are more than that. They are the myths through which I subconsciously processed my own journey to adulthood. They are the allegories through which I came to understand the humanity of my enemies. And that is worth arguing about.&lt;/p&gt;
 &lt;p&gt;Well, at least I have the original trilogy, no matter what the future brings to the franchise. It’s not like George Lucas is gonna go back and mess with those and ruin them or anything, right?&lt;/p&gt;
-&lt;p&gt;Oh, wait. :(&lt;/p&gt;</content:encoded></item><item><title><![CDATA[OMG 8 Disney Princesses Re-imagined as Guys Named Steve]]></title><description><![CDATA[After a stream of Disney princess related articles assaulted me on Tumblr and Facebook, something inside of me snapped...]]></description><link>https://matthaws.github.io/the-blog/posts/disney-princesses/</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/disney-princesses/</guid><pubDate>Sun, 23 Aug 2015 23:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;You won’t believe #6!&lt;/h2&gt;
+&lt;p&gt;Oh, wait. :(&lt;/p&gt;</content:encoded></item><item><title><![CDATA[OMG 8 Disney Princesses Re-imagined as Guys Named Steve]]></title><description><![CDATA[After a stream of Disney princess related articles assaulted me on Tumblr and Facebook, something inside of me snapped...]]></description><link>https://matthaws.github.io/the-blog/posts/disney-princesses/</link><guid isPermaLink="false">https://matthaws.github.io/the-blog/posts/disney-princesses/</guid><pubDate>Sun, 23 Aug 2015 23:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;You won’t believe 6!&lt;/h2&gt;
 &lt;p&gt;ZOMG you guys this is so cool! Some guy on the internet re-imagined all your favorite Disney princesses as guys named Steve, and the results are amazing!!! You’ll never look at Disney princesses the same way again!&lt;/p&gt;
-&lt;p&gt;Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;h3&gt;1 - CINDERELLA&lt;/h3&gt;
+
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/the-blog/static/Cinderella_Photo-7fc22f2254e0e5eeca6d01f367f19692-ed0f2.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  
+  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; ; max-width: 960px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 149.81273408239701%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAHvqF2aiC3DV1UNRAV//8QAGxAAAwADAQEAAAAAAAAAAAAAAQIRAAMQISL/2gAIAQEAAQUCxOO0xJxz9WYpobX6NZqiD//EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAEDAQE/AWP/xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAgEBPwEj/8QAGRAAAwADAAAAAAAAAAAAAAAAABARICFB/9oACAEBAAY/AnCY6OL/xAAdEAEBAQACAgMAAAAAAAAAAAABEQAQITFBYZGx/9oACAEBAAE/IcvJb3x9JmHpxRPzil/MlUjnbRN7KM81u//aAAwDAQACAAMAAAAQ3MeN/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEREFH/2gAIAQMBAT8Q4yOiP//EABgRAAMBAQAAAAAAAAAAAAAAAAABERBR/9oACAECAQE/EOsqgz//xAAfEAEAAgEFAAMAAAAAAAAAAAABABEhEDFBUXFhgZH/2gAIAQEAAT8QcEvvbLfWgJ5toaFMte/Oj+A/JhVqoBuWEt0DExHRW4viDOW2BL464n//2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;Cinderella Photo&quot; title=&quot;&quot; src=&quot;/the-blog/static/Cinderella_Photo-7fc22f2254e0e5eeca6d01f367f19692-d564d.jpg&quot; srcset=&quot;/the-blog/static/Cinderella_Photo-7fc22f2254e0e5eeca6d01f367f19692-865fd.jpg 240w,
+/the-blog/static/Cinderella_Photo-7fc22f2254e0e5eeca6d01f367f19692-d40a0.jpg 480w,
+/the-blog/static/Cinderella_Photo-7fc22f2254e0e5eeca6d01f367f19692-d564d.jpg 960w,
+/the-blog/static/Cinderella_Photo-7fc22f2254e0e5eeca6d01f367f19692-ed0f2.jpg 1068w&quot; sizes=&quot;(max-width: 960px) 100vw, 960px&quot;&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    
+&lt;p&gt;Cinderella was a Disney princess from the Disney movie “Cinderella,” in which she is the princess. I’ve always wanted to know what she’d look like if she was a guy named Steve — and now we know:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/Cinderella_Steve-9c7cbebb1aba908153e0e1bb0c6263d3-12c6f.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 284px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 112.67605633802818%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAXABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIEBQH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB2uxiWAZsyy+Jf//EABsQAAEFAQEAAAAAAAAAAAAAAAIAAQMEERIT/9oACAEBAAEFApN4B9BG+Ox4auS+SqF3Gv/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABYRAQEBAAAAAAAAAAAAAAAAABARQf/aAAgBAgEBPwGGH//EABoQAAEFAQAAAAAAAAAAAAAAABEAAQIQIRL/2gAIAQEABj8CxMaZcCo4SnkBtf/EABoQAQACAwEAAAAAAAAAAAAAAAEhMQAQEUH/2gAIAQEAAT8hYTfGRZ1LKcIAprmuKOS8Mzwc1//aAAwDAQACAAMAAAAQ68+8/8QAFxEAAwEAAAAAAAAAAAAAAAAAEBEhQf/aAAgBAwEBPxB4FR//xAAWEQEBAQAAAAAAAAAAAAAAAAAQETH/2gAIAQIBAT8QxSj/xAAcEAEBAAEFAQAAAAAAAAAAAAABESEAEDFB0VH/2gAIAQEAAT8QfxAlnMudcXx3862zJCTSqAahQ82wzBkUgTV8hTqyB7t//9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Cinderella Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/Cinderella_Steve-9c7cbebb1aba908153e0e1bb0c6263d3-12c6f.jpg&quot;
+        srcset=&quot;/the-blog/static/Cinderella_Steve-9c7cbebb1aba908153e0e1bb0c6263d3-1e8b3.jpg 240w,
+/the-blog/static/Cinderella_Steve-9c7cbebb1aba908153e0e1bb0c6263d3-12c6f.jpg 284w&quot;
+        sizes=&quot;(max-width: 284px) 100vw, 284px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;2 - BELLE&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/Belle2-83ca277dad2f3accbeb82e5cf8fd1639-85f2f.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 225px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 142.22222222222223%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAcABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAAB7+TUqZcBQKq6ud5LF0//xAAbEAABBAMAAAAAAAAAAAAAAAABABARMQIDQv/aAAgBAQABBQI1pL9ItjUKG//EABYRAQEBAAAAAAAAAAAAAAAAABABEf/aAAgBAwEBPwGGn//EABoRAAICAwAAAAAAAAAAAAAAAAACARARITH/2gAIAQIBAT8BZsVKbI4f/8QAGxABAAAHAAAAAAAAAAAAAAAAAQACEBEhMEH/2gAIAQEABj8ChZsLyt9H/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARIRAx/9oACAEBAAE/IVSauN6E+m+KEAMN5p2VnFD7K8//2gAMAwEAAgADAAAAEC/Dvf/EABgRAQADAQAAAAAAAAAAAAAAAAEAEBEh/9oACAEDAQE/EBo0cRdZ/8QAGBEBAAMBAAAAAAAAAAAAAAAAAQAQESH/2gAIAQIBAT8Q0FNxBgJ//8QAGxABAAMBAQEBAAAAAAAAAAAAAQARMSGREFH/2gAIAQEAAT8QohUFo1jVlweU2+crz4Z3yJNgWQbLILUWkR1b1/dmHV3ZmvIOl20wAKMn/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Belle&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/Belle2-83ca277dad2f3accbeb82e5cf8fd1639-85f2f.jpg&quot;
+        srcset=&quot;/the-blog/static/Belle2-83ca277dad2f3accbeb82e5cf8fd1639-85f2f.jpg 225w&quot;
+        sizes=&quot;(max-width: 225px) 100vw, 225px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Remember Belle? She was a princess in a Disney movie — well she married a prince at the end so she BECOMES a princess by virtue of marriage like our very own Disney Meghan Markle — so you love her more than life itself, right? Well prepare to have your MIND BLOW when you see her as a Steve!!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/Belle_Steve-1fee7a1d158ac8bfe47ea423468bc8f6-a00da.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 320px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 56.56250000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAF+kdy0VBpX/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEDBAIhMf/aAAgBAQABBQIlt4R2FtE6Tv8AD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAIBBQAAAAAAAAAAAAAAAAESEAARIjFB/9oACAEBAAY/AquA3NyhGLR//8QAGxABAAICAwAAAAAAAAAAAAAAAQAhEDERQXH/2gAIAQEAAT8hjRyLJ0i4E04FEor2AADRP//aAAwDAQACAAMAAAAQvw//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPxAn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAQACAgMAAAAAAAAAAAAAAREAIRCBMUFR/9oACAEBAAE/EMLSZqbFZ60zu4PgQJ3wvBLJNAXZvDLgQPhn/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Belle Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/Belle_Steve-1fee7a1d158ac8bfe47ea423468bc8f6-a00da.jpg&quot;
+        srcset=&quot;/the-blog/static/Belle_Steve-1fee7a1d158ac8bfe47ea423468bc8f6-6bcd1.jpg 240w,
+/the-blog/static/Belle_Steve-1fee7a1d158ac8bfe47ea423468bc8f6-a00da.jpg 320w&quot;
+        sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;3 - ARIEL&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/ArielOrg-fb1d9b7c2ca339925afd4aaa5c44792d-a00da.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 320px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAUB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHv83flK9cmPo5kJ//EABwQAAICAgMAAAAAAAAAAAAAAAECAAMQERIhMf/aAAgBAQABBQKPYxtRy68u7Ru3yaBgAGP/xAAWEQEBAQAAAAAAAAAAAAAAAAABAiD/2gAIAQMBAT8BKJx//8QAFhEAAwAAAAAAAAAAAAAAAAAAASAh/9oACAECAQE/ATU//8QAHBAAAgICAwAAAAAAAAAAAAAAAAECMRARISJB/9oACAEBAAY/Ah31NqJoio37ijhY/8QAGxABAQEAAgMAAAAAAAAAAAAAAREAMVEQcYH/2gAIAQEAAT8hxCEcQZdUSPbkB7b6TujACBDLKi7hQ9eP/9oADAMBAAIAAwAAABCkKED/xAAYEQEBAQEBAAAAAAAAAAAAAAABEQAQIf/aAAgBAwEBPxCopcpfDQ5//8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQETH/2gAIAQIBAT8QR4Fc/wD/xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMRBBUWFx/9oACAEBAAE/EIRKgX57XXiCDtVAzEZzMdM+jp5fbDAg6IdcHaQpLnLSr4//2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Ariel&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/ArielOrg-fb1d9b7c2ca339925afd4aaa5c44792d-a00da.jpg&quot;
+        srcset=&quot;/the-blog/static/ArielOrg-fb1d9b7c2ca339925afd4aaa5c44792d-6bcd1.jpg 240w,
+/the-blog/static/ArielOrg-fb1d9b7c2ca339925afd4aaa5c44792d-a00da.jpg 320w&quot;
+        sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Ariel (whose father is King Triton, so she’s definitely a princess!), has her dream come true when she becomes part of Steve’s world!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/ArielMan-1dc0e9ca9155eb75cf9697dd348561f7-e0740.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 500px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQL/xAAVAQEBAAAAAAAAAAAAAAAAAAAABP/aAAwDAQACEAMQAAABV2hxREgVA//EABkQAQEBAAMAAAAAAAAAAAAAAAEAEQIDEP/aAAgBAQABBQLGXfEjq4lhf//EABYRAQEBAAAAAAAAAAAAAAAAAAABEv/aAAgBAwEBPwGVp//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABcQAAMBAAAAAAAAAAAAAAAAABAgMdH/2gAIAQEABj8CiaP/xAAcEAADAAIDAQAAAAAAAAAAAAAAAREhMUFRYZH/2gAIAQEAAT8hnypDdPp4pBDUejNRv6PA/9oADAMBAAIAAwAAABCQD//EABcRAAMBAAAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8QDNT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQIBAT8Q2o//xAAcEAABBAMBAAAAAAAAAAAAAAABABEhMUFRYZH/2gAIAQEAAT8QBLDKrCGE8AYd0NhGdInHK2Mok0nZeJpcPi//2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Ariel Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/ArielMan-1dc0e9ca9155eb75cf9697dd348561f7-e0740.jpg&quot;
+        srcset=&quot;/the-blog/static/ArielMan-1dc0e9ca9155eb75cf9697dd348561f7-64397.jpg 240w,
+/the-blog/static/ArielMan-1dc0e9ca9155eb75cf9697dd348561f7-1a212.jpg 480w,
+/the-blog/static/ArielMan-1dc0e9ca9155eb75cf9697dd348561f7-e0740.jpg 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;4 - MULAN&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/MulanOrg-0dced8df00cf1bc71972c4ee3e6f1f77-cfd19.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 960px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 106.71428571428572%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAVABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAIEAQMF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAe/VtaIsCsRImK//xAAZEAACAwEAAAAAAAAAAAAAAAACEAABAxH/2gAIAQEAAQUCmF9eQCDpf//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABwQAAAGAwAAAAAAAAAAAAAAAAABAhARIRIgQf/aAAgBAQAGPwIKubc8e6//xAAaEAACAgMAAAAAAAAAAAAAAAABEBEhADFB/9oACAEBAAE/Icj8xugtpNsYX//aAAwDAQACAAMAAAAQsAgA/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EF0Igoz/xAAbEAACAgMBAAAAAAAAAAAAAAABERAxACFB8f/aAAgBAQABPxDLYUMu3u/JCgQbckWT2DWNktuP/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Mulan&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/MulanOrg-0dced8df00cf1bc71972c4ee3e6f1f77-d564d.jpg&quot;
+        srcset=&quot;/the-blog/static/MulanOrg-0dced8df00cf1bc71972c4ee3e6f1f77-865fd.jpg 240w,
+/the-blog/static/MulanOrg-0dced8df00cf1bc71972c4ee3e6f1f77-d40a0.jpg 480w,
+/the-blog/static/MulanOrg-0dced8df00cf1bc71972c4ee3e6f1f77-d564d.jpg 960w,
+/the-blog/static/MulanOrg-0dced8df00cf1bc71972c4ee3e6f1f77-cfd19.jpg 1400w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Mulan wasn’t literally a princess in the movie “Mulan,” I mean she flirts with a general guy at the end but even if she married him she still wouldn’t technically be a princess. BUT SHE’S STILL A DISNEY PRINCESS BECAUSE WE SAY SO AND WE LOVE HER.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/MulanSteve-826a469b6a278cb3a80c1f4455043917-121ec.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 960px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 96.875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQBAwb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABusgqTqxL5zCtB//EABsQAAMAAgMAAAAAAAAAAAAAAAACAxQyARAS/9oACAEBAAEFAqcen6bdNR6uZNjJqf/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAECAQE/ASP/xAAaEAACAwEBAAAAAAAAAAAAAAAAARAiMiFR/9oACAEBAAY/AlZ88cuVY2bP/8QAHBAAAgIDAQEAAAAAAAAAAAAAAAERITFRkRBh/9oACAEBAAE/IV0KGIIeympz4iW5iQvSxuTsLZ4j6z//2gAMAwEAAgADAAAAEDwvPP/EABcRAQADAAAAAAAAAAAAAAAAABEgITH/2gAIAQMBAT8QWjIf/8QAGBEBAAMBAAAAAAAAAAAAAAAAAREgITH/2gAIAQIBAT8QQbPaf//EAB4QAQACAgIDAQAAAAAAAAAAAAEAESExQVFxsdHh/9oACAEBAAE/EDW7aOVm4b6zCgECbNMoiOvKuo9TA6dXPKPKI5o+S4GHr8I4fSfJ/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Mulan Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/MulanSteve-826a469b6a278cb3a80c1f4455043917-d564d.jpg&quot;
+        srcset=&quot;/the-blog/static/MulanSteve-826a469b6a278cb3a80c1f4455043917-865fd.jpg 240w,
+/the-blog/static/MulanSteve-826a469b6a278cb3a80c1f4455043917-d40a0.jpg 480w,
+/the-blog/static/MulanSteve-826a469b6a278cb3a80c1f4455043917-d564d.jpg 960w,
+/the-blog/static/MulanSteve-826a469b6a278cb3a80c1f4455043917-c67c1.jpg 1440w,
+/the-blog/static/MulanSteve-826a469b6a278cb3a80c1f4455043917-121ec.jpg 1600w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;5 - JASMINE&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/Jasmine-32be27966a5acf5500aa505dade1af52-666f7.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 367px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 159.94550408719346%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAgABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEBQH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQMC/9oADAMBAAIQAxAAAAGpKuIuFBvmakepUjCp/8QAHRAAAgIDAAMAAAAAAAAAAAAAAQIAAwQREhATI//aAAgBAQABBQJrwb0yLbJsQ4lUUcvz46+inYjqfbP/xAAZEQACAwEAAAAAAAAAAAAAAAAAAQIQIXH/2gAIAQMBAT8B6YTTr//EABcRAAMBAAAAAAAAAAAAAAAAAAABECH/2gAIAQIBAT8BZop//8QAHxAAAQUAAQUAAAAAAAAAAAAAAQACEBEhMRIiUVJh/9oACAEBAAY/Au00Ga4+fi62DPWLDd5VA0tjjVcB0f/EAB4QAAICAgIDAAAAAAAAAAAAAAERACEQQTFxUWGR/9oACAEBAAE/IV7cD8JRkuq2Z5iAe46eb23Ch6JRDak4ezELIUToR6OE4AiReP/aAAwDAQACAAMAAAAQCB18/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARIf/aAAgBAwEBPxAZqDJF/8QAFhEBAQEAAAAAAAAAAAAAAAAAARBB/9oACAECAQE/EFhCCf/EACAQAQACAgICAwEAAAAAAAAAAAERIQAxQVEQgZGx4fH/2gAIAQEAAT8QhlWq1QgHMv1jkSoBIG74XvRkFcoESZYSopcekx6yPNdo/CFf3CuL2xHrHVXkMzKzmfzLILsLHrxtiSGzuvH/2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Jasmine&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/Jasmine-32be27966a5acf5500aa505dade1af52-666f7.jpg&quot;
+        srcset=&quot;/the-blog/static/Jasmine-32be27966a5acf5500aa505dade1af52-fc204.jpg 240w,
+/the-blog/static/Jasmine-32be27966a5acf5500aa505dade1af52-666f7.jpg 367w&quot;
+        sizes=&quot;(max-width: 367px) 100vw, 367px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Now, see, Jasmine actually is a princess, technically, because her dad is the Sultan. But she looks AMAZING as a guy name Steve! Wow!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/JasmineMan-918bbff4532704658c6850e4b2eae539-a00da.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 320px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 97.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBgX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAbPWz1geygRnIgdUNH//xAAdEAABBAIDAAAAAAAAAAAAAAACAAEDBBARISIx/9oACAEBAAEFAuRtYkNV7BbDu0iD2JtR/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAgMf/aAAgBAwEBPwGj/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHRAAAQQDAQEAAAAAAAAAAAAAAQACESEQEjFRYf/aAAgBAQAGPwJtm+3n7CIeahbbdwU2PF//xAAcEAACAgIDAAAAAAAAAAAAAAABEQAhMUEQcaH/2gAIAQEAAT8hFQw+znYdlw5lBmczbFgoVieKAGBBJ//aAAwDAQACAAMAAAAQ9zh8/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQETH/2gAIAQMBAT8QbWCp/8QAGREAAgMBAAAAAAAAAAAAAAAAAAEQESEx/9oACAECAQE/EFnSxR//xAAfEAEAAgICAgMAAAAAAAAAAAABABEhMUFREGFxkeH/2gAIAQEAAT8QQzUUWg+HB+eQUpQBTOym+7uIOaGolc87jaaJtwBj7xG39xIl5JG5YUey2f/Z&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Jasmine Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/JasmineMan-918bbff4532704658c6850e4b2eae539-a00da.jpg&quot;
+        srcset=&quot;/the-blog/static/JasmineMan-918bbff4532704658c6850e4b2eae539-6bcd1.jpg 240w,
+/the-blog/static/JasmineMan-918bbff4532704658c6850e4b2eae539-a00da.jpg 320w&quot;
+        sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;6 - POCOHONTAS&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/Pocahontas01-b19f0cab8da1c41c8edc0bc76c2d46bf-362fe.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 131px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 244.27480916030535%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAxABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAECBAMF/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgADAf/aAAwDAQACEAMQAAAB9C8eaO++ymWTdGWnR0ajjKoWhBmalWFf/8QAHhAAAgEEAwEAAAAAAAAAAAAAAQMCAAQQERITMkH/2gAIAQEAAQUCu2cI27AcPHI3AC6t29qj66YNMIRXGcaWAcNOoK8VMEhZ1n7X/8QAGBEAAgMAAAAAAAAAAAAAAAAAEEERICH/2gAIAQMBAT8BjAgqf//EABoRAAICAwAAAAAAAAAAAAAAABARARIgIkL/2gAIAQIBAT8BewU2HWH/xAAhEAACAgEDBQEAAAAAAAAAAAABEQACEiAhYRAiMUFRcf/aAAgBAQAGPwKoayMNXuOgCagNT3PzMvctzBl+TGoQjEfOkL7MTtp//8QAHRAAAgICAwEAAAAAAAAAAAAAAREAMRAhUWFxsf/aAAgBAQABPyHbjQJHEA7566wJNLbyIFG5LUVl0M+ZHISgTZQZSIkG5swYfTDvvUpWFAdpQGehk0x//9oADAMBAAIAAwAAABDP3nykwAD/xAAZEQEAAgMAAAAAAAAAAAAAAAABABEQIFH/2gAIAQMBAT8QUXg3LHHk0//EABgRAAMBAQAAAAAAAAAAAAAAAAEQESEg/9oACAECAQE/ENwoIco8f//EACIQAQABAwMEAwAAAAAAAAAAAAERACExEEFRYXGBobHB4f/aAAgBAQABPxBjIrkgZ+q5Mg5EW76RCApTFQmrWrCCwXlPFOVgLGZTekmFkeISnulw0IGi0mO1Fnwg55XeoDzYnciLVkSEHeP3RVnCzrRCEAr86GgxCFixRzYKU3FnX0nT/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Pocohontas&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/Pocahontas01-b19f0cab8da1c41c8edc0bc76c2d46bf-362fe.jpg&quot;
+        srcset=&quot;/the-blog/static/Pocahontas01-b19f0cab8da1c41c8edc0bc76c2d46bf-362fe.jpg 131w&quot;
+        sizes=&quot;(max-width: 131px) 100vw, 131px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Daughter of tribal chief totally counts as a Princess because why not? Say hello to Princess Steve!!!&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/PocohontasSteve-855026812461aa06351cb9cbb38dad35-937c6.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 238px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 134.45378151260502%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGBAL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAF4q2oCqMQdydrJFUAf/8QAHhAAAgIBBQEAAAAAAAAAAAAAAQIDBBIAFCEiMTL/2gAIAQEAAQUCdsVhsmWXVrivJ1rUzlWtKWr5NIUQIh8AGzX5/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHxAAAgIBBAMAAAAAAAAAAAAAAAECEUEQEiExUWFx/9oACAEBAAY/ArLuldVpP4RWXyQsml4Ixb9CiukMvO8R/8QAHBAAAwACAwEAAAAAAAAAAAAAAAERITEQUWGB/9oACAEBAAE/Iab6QqZTwzh6AqVLLQ1raQYjHkaK9H0an2C1T6IsqN/gzbPEf//aAAwDAQACAAMAAAAQX8C8/8QAFREBAQAAAAAAAAAAAAAAAAAAESD/2gAIAQMBAT8QY//EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxANhP/EAB4QAQEAAgICAwAAAAAAAAAAAAERACExgWGxEEHR/9oACAEBAAE/EDLUa4gqXhiGNlt89fG1EKHcw9hpJLOPeLeoVLyCh6wfv3haG07kxJACKIUhuYW0CPPnCEUUJ1jXWARsJ/DHM1WXoz//2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Pocohontas Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/PocohontasSteve-855026812461aa06351cb9cbb38dad35-937c6.jpg&quot;
+        srcset=&quot;/the-blog/static/PocohontasSteve-855026812461aa06351cb9cbb38dad35-937c6.jpg 238w&quot;
+        sizes=&quot;(max-width: 238px) 100vw, 238px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;7 - SNOW WHITE&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/snow-white-918b4deb82a257b76129989b040cc23f-235be.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 220px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 145.45454545454547%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAdABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUDBAb/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABZZ95DG0KpRIreZouwNSn/8QAGhABAAMBAQEAAAAAAAAAAAAAAgEDBBIAEf/aAAgBAQABBQLTDUdPNpC6KsUpI80aDYL/AJAsrmz1eFczH3zlQ866q//EABgRAAMBAQAAAAAAAAAAAAAAAAABIRAR/9oACAEDAQE/AWuYrBw//8QAFxEBAAMAAAAAAAAAAAAAAAAAEAEhMf/aAAgBAgEBPwGLMP/EACAQAAICAQQDAQAAAAAAAAAAAAABAhEhAxIiUTJhccH/2gAIAQEABj8CUYy29sxLd+ifY7WELWcfhfjWC6Fz4VZb1KsyS0oyqIvWD//EAB4QAQACAgEFAAAAAAAAAAAAAAEAESExUUFhcZHB/9oACAEBAAE/IaG1F+MrLdFDogGicHcBqksmAFyW2zB2TBgRmrfch9Heh3E8gUEAULJd4HjXiPe37Kn/2gAMAwEAAgADAAAAEJPmQ//EABcRAQEBAQAAAAAAAAAAAAAAAAEAERD/2gAIAQMBAT8QUY8YBFpI3//EABcRAQEBAQAAAAAAAAAAAAAAAAEAESH/2gAIAQIBAT8Q6cmVSjDpt//EAB8QAQEAAgICAwEAAAAAAAAAAAERACExUUFxYZGh4f/aAAgBAQABPxBwMKLoD9X8wKl2kjeJ3gpcUGD2YE1qhJBOeH+5arhA+BHpx7sVNeAb9OLc8hD2GJAk+C1oDqLkqEoRxCXfOQw6HLaVA2hXtrWJhKrT0XP/2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Snow White&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/snow-white-918b4deb82a257b76129989b040cc23f-235be.jpg&quot;
+        srcset=&quot;/the-blog/static/snow-white-918b4deb82a257b76129989b040cc23f-235be.jpg 220w&quot;
+        sizes=&quot;(max-width: 220px) 100vw, 220px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Snow White was the first Disney princess so some would say that she is the BEST Disney princess. But that would BE DUMB BECAUSE EVERY DISNEY PRINCESS IS THE BEST DISNEY PRINCESS.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/snow-white-steve-585ca5c75844442d4e8f523776dd0bd6-12c6f.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 284px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 112.67605633802818%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAXABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAAB9yfdKpCM3IDrFH//xAAcEAACAgIDAAAAAAAAAAAAAAABAwACEBEhIjH/2gAIAQEAAQUCuSKINtRrNRfQRg59x//EABcRAQADAAAAAAAAAAAAAAAAABABESH/2gAIAQMBAT8BrCD/xAAYEQACAwAAAAAAAAAAAAAAAAAAEQEQIf/aAAgBAgEBPwF7UjP/xAAdEAABBAIDAAAAAAAAAAAAAAABABAREgIhMWFx/9oACAEBAAY/AjHKNjPbVx2VtgV43//EABsQAQACAwEBAAAAAAAAAAAAAAEAIRARMUFR/9oACAEBAAE/IUDkVGjXa0w1TZTOX13BhevZpVP1Fdz/2gAMAwEAAgADAAAAEODHgP/EABYRAQEBAAAAAAAAAAAAAAAAABAxQf/aAAgBAwEBPxDQg//EABcRAQADAAAAAAAAAAAAAAAAAAAQETH/2gAIAQIBAT8Qg0s//8QAGxABAQADAQEBAAAAAAAAAAAAAREAIUExUfD/2gAIAQEAAT8QJYUNHcaPIsBbzXzJV3hUMQfBzQcrGPB81hhfREjusQmlEedypP2s/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Snow White Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/snow-white-steve-585ca5c75844442d4e8f523776dd0bd6-12c6f.jpg&quot;
+        srcset=&quot;/the-blog/static/snow-white-steve-585ca5c75844442d4e8f523776dd0bd6-1e8b3.jpg 240w,
+/the-blog/static/snow-white-steve-585ca5c75844442d4e8f523776dd0bd6-12c6f.jpg 284w&quot;
+        sizes=&quot;(max-width: 284px) 100vw, 284px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;8 - ELSA FROM FROZEN&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/ElsaPromo3-7644d1cf9dd9760052f33bf02ea321b1-a00da.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 320px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 89.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAASABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEDBAIF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAH2bsNjnW5GkkSJ/8QAGxAAAgIDAQAAAAAAAAAAAAAAAhEBEAADBBL/2gAIAQEAAQUCOUVdJeY1nKxO/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwFj/8QAFhEAAwAAAAAAAAAAAAAAAAAAESAh/9oACAECAQE/ARE//8QAGRAAAwADAAAAAAAAAAAAAAAAAQIQABEh/9oACAEBAAY/Alq5oidv/8QAHBABAAEEAwAAAAAAAAAAAAAAAREAEDFxIUFR/9oACAEBAAE/IVyInN9wYrlE+JQz00jAO7//2gAMAwEAAgADAAAAEHzPwP/EABcRAAMBAAAAAAAAAAAAAAAAAAERIDH/2gAIAQMBAT8Q0jH/xAAYEQACAwAAAAAAAAAAAAAAAAABEBEhQf/aAAgBAgEBPxC8gsX/xAAcEAEBAAICAwAAAAAAAAAAAAABEQAhEDFRcaH/2gAIAQEAAT8QN2VsHU8PJJWC/GOKoNC0yKw9mFAIdRcACBOP/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Elsa From Frozen&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/ElsaPromo3-7644d1cf9dd9760052f33bf02ea321b1-a00da.jpg&quot;
+        srcset=&quot;/the-blog/static/ElsaPromo3-7644d1cf9dd9760052f33bf02ea321b1-6bcd1.jpg 240w,
+/the-blog/static/ElsaPromo3-7644d1cf9dd9760052f33bf02ea321b1-a00da.jpg 320w&quot;
+        sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;I know I said that every princess is the best princess but we all know thats not technically true because the BEST PRINCESS IS ELSA FROM FROZEN AND YOU CAN NEVER SAY ELSA YOU ALWAYS HAVE TO SAY ELSA FROM FROZEN. ELSA FROM FROZEN SINGS THE SONG AND YOU LOVE HER. YOU LOVE HER AND YOU WOULD DIE FOR HER IN A SECOND!!&lt;/p&gt;
+&lt;p&gt;Here she is as a guy named Steve:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/the-blog/static/Elsa-7ddb984270c263651e149635ab8644ea-2c7cd.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 316px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 101.26582278481011%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUDAQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQD/2gAMAwEAAhADEAAAAaE3PIq26mk+YUvg3//EABoQAAICAwAAAAAAAAAAAAAAAAECAAMEESH/2gAIAQEAAQUCPBWxLTIs29bFDMmsJE6QND//xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwFj/8QAFREBAQAAAAAAAAAAAAAAAAAAESD/2gAIAQIBAT8BI//EABsQAQACAgMAAAAAAAAAAAAAAAEAERBBAiFR/9oACAEBAAY/AlhTfuEvolmB47hKNT//xAAdEAACAQQDAAAAAAAAAAAAAAABEQAhMUFhEFGR/9oACAEBAAE/IT0gcfpX44KNwl3HsQzuAsMWMNsVlwVzmAFaBCf/2gAMAwEAAgADAAAAEMPvAv/EABYRAAMAAAAAAAAAAAAAAAAAAAERIP/aAAgBAwEBPxAJH//EABYRAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAgEBPxATD//EABwQAQEAAgIDAAAAAAAAAAAAAAERACExQVFhkf/aAAgBAQABPxD3JfBlvx5lZG37ibx8V5DpduVKSI8PCYBJQo+sPoKAtDvWU2xgpztMv5JRujP/2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Elsa From Frozen Steve&quot;
+        title=&quot;&quot;
+        src=&quot;/the-blog/static/Elsa-7ddb984270c263651e149635ab8644ea-2c7cd.jpg&quot;
+        srcset=&quot;/the-blog/static/Elsa-7ddb984270c263651e149635ab8644ea-23b37.jpg 240w,
+/the-blog/static/Elsa-7ddb984270c263651e149635ab8644ea-2c7cd.jpg 316w&quot;
+        sizes=&quot;(max-width: 316px) 100vw, 316px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wow, isn’t it amazing to see Disney princesses as things that aren’t Disney princesses and yet somehow in their essence are still totally Disney princesses. DISNEY PRINCESSES CAN BE ANYTHING AND THEY ARE EVERYWHERE, DISNEY PRINCESSES ARE GOD.&lt;/p&gt;
+&lt;p&gt;Follow the links below to see Disney princesses as rocks, Disney princesses as forms of government, and Disney princesses as DIFFERENT Disney princesses!&lt;/p&gt;</content:encoded></item></channel></rss>
